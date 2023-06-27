@@ -1,10 +1,13 @@
 import style from "./header.module.css";
 import headerImage from "../../assets/hiAugust.png";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <div className={style.headerContainer}>
-      <img src={headerImage} className={style.headerImage} />
+      <Link to="/">
+        <img src={headerImage} className={style.headerImage} />
+      </Link>
     </div>
   );
 }
