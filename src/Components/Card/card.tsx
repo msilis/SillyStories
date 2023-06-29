@@ -3,14 +3,9 @@ import { useRef, RefObject } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { showToast } from "../Utilities/toasts";
-
-export interface CardProps {
-  cardTitle?: string;
-  placeholderText?: string;
-  cardControl?: string;
-  next?: string;
-  back?: string;
-}
+import { storyFetch } from "../Utilities/sillyNetworkCall";
+import { CardProps } from "../Interfaces/cardProps";
+import { storyEdit } from "../Utilities/storyEdit";
 
 export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
   const navigate = useNavigate();
@@ -19,10 +14,10 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
   const inputValue: RefObject<HTMLInputElement> =
     useRef<HTMLInputElement>(null);
 
-  //console
-  console.log(props.cardProps.cardTitle);
-  console.log(props.cardProps.next);
-  console.log(props.cardProps.back);
+  //Get values from localStorage to populate input fields
+  const savedInputValue = localStorage.getItem(
+    `${props.cardProps.cardControl}`
+  );
 
   //Next button
   const nextClick = () => {
@@ -45,6 +40,21 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
     navigate(`${props.cardProps.back}`);
   }
 
+  //Finish button
+  async function finishClick() {
+    try {
+      const fetchedStory = await storyFetch();
+      if (props.cardProps.setStoryState) {
+        console.log(fetchedStory, "fetched story");
+        props.cardProps.setStoryState(fetchedStory);
+        navigate("/finish");
+      }
+    } catch (err) {
+      showToast("There was a problem");
+      console.log(err);
+    }
+  }
+
   return (
     <Card className={style.cardContainer}>
       <Card.Body className={style.cardBody}>
@@ -54,6 +64,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
         <Form.Group controlId={props.cardProps.cardControl}>
           <Form.Control
             type="text"
+            defaultValue={savedInputValue || ""}
             placeholder={props.cardProps.placeholderText}
             className={style.input}
             ref={inputValue}
@@ -63,9 +74,15 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
           <Button className={style.button} onClick={backClick}>
             Back
           </Button>
-          <Button className={style.button} onClick={nextClick}>
-            Next
-          </Button>
+          {props.cardProps.cardControl === "animalInput" ? (
+            <Button className={style.button} onClick={finishClick}>
+              Finish
+            </Button>
+          ) : (
+            <Button className={style.button} onClick={nextClick}>
+              Next
+            </Button>
+          )}
         </div>
       </Card.Body>
     </Card>

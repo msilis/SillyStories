@@ -1,5 +1,5 @@
 import style from "./App.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import Header from "./Components/Header/header";
 import FriendName from "./Components/FriendName/friendName";
@@ -11,30 +11,17 @@ import Animal from "./Components/Animal/animal";
 import Finish from "./Components/Finish/finish";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { clearStorage } from "./Components/Utilities/clearStorage";
 
 function App(): JSX.Element {
   const navigate = useNavigate();
   const location = useLocation();
 
-  //remove values from localStorage if there are any
+  //State to keep story
+  const [storyState, setStoryState] = useState<string>("");
+  const [editedStory, setEditedStory] = useState<string>("");
 
-  const clearStorage = () => {
-    if (localStorage.getItem("friendNameInput") !== null) {
-      localStorage.removeItem("friendNameInput");
-    }
-    if (localStorage.getItem("colorInput") !== null) {
-      localStorage.removeItem("colorInput");
-    }
-    if (localStorage.getItem("animalInput") !== null) {
-      localStorage.removeItem("animalInput");
-    }
-    if (localStorage.getItem("cityNameInput") !== null) {
-      localStorage.removeItem("cityNameInput");
-    }
-    if (localStorage.getItem("foodInput") !== null) {
-      localStorage.removeItem("foodInput");
-    }
-  };
+  //remove values from localStorage if there are any
 
   function StoryRoutes(): JSX.Element {
     return (
@@ -44,8 +31,20 @@ function App(): JSX.Element {
         <Route path="/color" element={<FavoriteColor />}></Route>
         <Route path="/food" element={<Food />}></Route>
         <Route path="/city" element={<City />}></Route>
-        <Route path="/animal" element={<Animal />}></Route>
-        <Route path="/finish" element={<Finish />}></Route>
+        <Route
+          path="/animal"
+          element={<Animal setStoryState={setStoryState} />}
+        ></Route>
+        <Route
+          path="/finish"
+          element={
+            <Finish
+              storyState={storyState}
+              editedStory={editedStory}
+              setEditedStory={setEditedStory}
+            />
+          }
+        ></Route>
       </Routes>
     );
   }
@@ -55,6 +54,10 @@ function App(): JSX.Element {
       clearStorage();
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    console.log(storyState, "story state");
+  }, [storyState]);
 
   function handleGoClick() {
     console.log("handleGoClick fired");
