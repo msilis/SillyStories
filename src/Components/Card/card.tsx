@@ -15,9 +15,8 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
     useRef<HTMLInputElement>(null);
 
   //Get values from localStorage to populate input fields
-  const savedInputValue = localStorage.getItem(
-    `${props.cardProps.cardControl}`
-  );
+  const savedInputValue =
+    localStorage.getItem(`${props.cardProps.cardControl}`) || "";
 
   //Next button
   const nextClick = () => {
