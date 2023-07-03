@@ -1,17 +1,29 @@
 import { StoryEdit } from "../Interfaces/editProps";
 
 const storyEdit = (props: StoryEdit) => {
-  //Get story from state
-  const storyToEdit = props.storyState;
-
   //Values from localStorage
-  const nameValue = localStorage.getItem("friendNameInput") || "";
-  const cityValue = localStorage.getItem("cityNameInput") || "";
-  const colorValue = localStorage.getItem("colorInput") || "";
-  const foodValue = localStorage.getItem("foodInput") || "";
+  const Name = localStorage.getItem("friendNameInput") || "";
+  const City = localStorage.getItem("cityNameInput") || "";
+  const Color = localStorage.getItem("colorInput") || "";
+  const Food = localStorage.getItem("foodInput") || "";
+  const Animal = localStorage.getItem("animalInput") || "";
 
-  console.log(storyToEdit, "story to edit");
-  return;
+  const replacementValues = {
+    Name,
+    City,
+    Color,
+    Food,
+    Animal,
+  };
+
+  const story = props.storyState;
+  let editedStory = story;
+
+  Object.entries(replacementValues).forEach(([key, value]) => {
+    const pattern = new RegExp(`\\[${key}\\]`, "g");
+    editedStory = editedStory.replace(pattern, value);
+  });
+  return editedStory;
 };
 
 export { storyEdit };

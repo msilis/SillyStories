@@ -7,3 +7,13 @@
   border-radius: 10px;
   max-width: 100%;
 }
+
+@media only screen and (min-width: 900px) {
+  .headerContainer {
+    justify-content: center;
+  }
+
+  .headerImage {
+    width: 600px;
+  }
+}

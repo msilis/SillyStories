@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { showToast } from "../Utilities/toasts";
 import { storyFetch } from "../Utilities/sillyNetworkCall";
 import { CardProps } from "../Interfaces/cardProps";
-import { storyEdit } from "../Utilities/storyEdit";
 
 export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
   const navigate = useNavigate();
@@ -44,7 +43,10 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
     try {
       const fetchedStory = await storyFetch();
       if (props.cardProps.setStoryState) {
-        console.log(fetchedStory, "fetched story");
+        localStorage.setItem(
+          `${props.cardProps.cardControl}`,
+          inputValue.current?.value || ""
+        );
         props.cardProps.setStoryState(fetchedStory);
         navigate("/finish");
       }

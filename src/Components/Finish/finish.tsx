@@ -1,11 +1,22 @@
 import { FinishState } from "../Interfaces/finishProps";
 import style from "./finish.module.css";
+import { useEffect } from "react";
+import { storyEdit } from "../Utilities/storyEdit";
+import { StoryEdit } from "../Interfaces/editProps";
 
-export default function Finish(props: FinishState): React.ReactNode {
+export default function Finish(
+  props: FinishState & StoryEdit
+): React.ReactNode {
+  const displayStory = storyEdit({ storyState: props.storyState });
+
+  useEffect(() => {
+    storyEdit({ storyState: props.storyState });
+  }, []);
+
   return (
-    <div>
+    <div className={style.storyContainer}>
       <h1>Here is your story:</h1>
-      <p className={style.storyStyle}>{props.storyState}</p>
+      <pre className={style.storyStyle}>{displayStory}</pre>
     </div>
   );
 }
