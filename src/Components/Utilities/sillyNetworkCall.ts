@@ -1,5 +1,5 @@
 const storyFetch = () => {
-  return fetch("http://localhost:8086/randomStory")
+  return fetch("https://silly-stories-backend.onrender.com/randomStory")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);

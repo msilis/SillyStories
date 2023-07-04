@@ -1,4 +1,5 @@
-import InfoCard, { CardProps } from "../Card/card";
+import InfoCard from "../Card/card";
+import { CardProps } from "../Interfaces/cardProps";
 
 export default function City(): React.ReactNode {
   const infoCardprops: CardProps = {
