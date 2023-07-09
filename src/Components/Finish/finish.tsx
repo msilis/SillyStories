@@ -27,10 +27,11 @@ export default function Finish(
     <div className={style.storyContainer}>
       <h1>Here is your story:</h1>
       <pre className={style.storyStyle}>{displayStory}</pre>
-      <div className={style.newStory}>
+      <div className={style.buttonContainer}>
         <Button className={style.button} onClick={newClick}>
           New Story
         </Button>
+        <Button className={style.button}>Save</Button>
       </div>
     </div>
   );

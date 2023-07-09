@@ -1,5 +1,5 @@
 import style from "./card.module.css";
-import { useRef, RefObject } from "react";
+import { useRef, RefObject, useEffect } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { showToast } from "../Utilities/toasts";
@@ -56,6 +56,23 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
     }
   }
 
+  //Enter key
+  function handleEnterKey(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter" && props.cardProps.cardControl !== "animalInput") {
+      nextClick();
+    }
+    if (e.key === "Enter" && props.cardProps.cardControl === "animalInput") {
+      finishClick();
+    }
+  }
+
+  //Focus on input when new page loads
+  useEffect(() => {
+    if (inputValue.current) {
+      inputValue.current.focus();
+    }
+  }, []);
+
   return (
     <Card className={style.cardContainer}>
       <Card.Body className={style.cardBody}>
@@ -69,6 +86,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
             placeholder={props.cardProps.placeholderText}
             className={style.input}
             ref={inputValue}
+            onKeyDown={handleEnterKey}
           />
         </Form.Group>
         <div className={style.buttonContainer}>
