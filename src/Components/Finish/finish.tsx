@@ -3,6 +3,7 @@ import style from "./finish.module.css";
 import { useEffect } from "react";
 import { storyEdit } from "../Utilities/storyEdit";
 import { StoryEdit } from "../Interfaces/editProps";
+import { Button } from "react-bootstrap";
 
 export default function Finish(
   props: FinishState & StoryEdit
@@ -17,6 +18,9 @@ export default function Finish(
     <div className={style.storyContainer}>
       <h1>Here is your story:</h1>
       <pre className={style.storyStyle}>{displayStory}</pre>
+      <div className={style.newStory}>
+        <Button className={style.button}>New Story</Button>
+      </div>
     </div>
   );
 }
