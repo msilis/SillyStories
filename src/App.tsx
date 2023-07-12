@@ -12,6 +12,8 @@ import Finish from "./Components/Finish/finish";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { clearStorage } from "./Components/Utilities/clearStorage";
+import SavedStories from "./Components/Saved/savedStories";
+import About from "./Components/About/about";
 
 function App(): JSX.Element {
   const navigate = useNavigate();
@@ -45,6 +47,8 @@ function App(): JSX.Element {
             />
           }
         ></Route>
+        <Route path="/saved" element={<SavedStories />}></Route>
+        <Route path="/about" element={<About />}></Route>
       </Routes>
     );
   }

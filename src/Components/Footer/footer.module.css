@@ -1,0 +1,32 @@
+.footerContainer {
+  display: flex;
+  /* position: fixed;
+  bottom: 0; */
+  margin-top: 1rem;
+  background-color: rgba(100, 100, 100, 0.5);
+  width: 75%;
+  border-radius: 10px;
+}
+
+.footerList {
+  display: flex;
+  list-style-type: none;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footerListItem {
+  margin-right: 2rem;
+}
+
+.listLink {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  transition: 0.5s;
+  color: white;
+}
+
+.listLink:hover {
+  color: pink;
+}

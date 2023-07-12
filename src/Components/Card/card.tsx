@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { showToast } from "../Utilities/toasts";
 import { storyFetch } from "../Utilities/sillyNetworkCall";
 import { CardProps } from "../Interfaces/cardProps";
+import { ButtonClick } from "../Interfaces/buttonClick";
 
 export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
     localStorage.getItem(`${props.cardProps.cardControl}`) || "";
 
   //Next button
-  const nextClick = () => {
+  const nextClick: ButtonClick = () => {
     if (inputValue.current?.value === "") {
       showToast(`You need to enter a(n) ${props.cardProps.placeholderText}`);
     } else {
@@ -34,12 +35,12 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
 
   //Back button
 
-  function backClick() {
+  const backClick: ButtonClick = () => {
     navigate(`${props.cardProps.back}`);
-  }
+  };
 
   //Finish button
-  async function finishClick() {
+  const finishClick: ButtonClick = async () => {
     try {
       const fetchedStory = await storyFetch();
       if (props.cardProps.setStoryState) {
@@ -54,7 +55,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
       showToast("There was a problem");
       console.log(err);
     }
-  }
+  };
 
   //Enter key
   function handleEnterKey(e: React.KeyboardEvent<HTMLInputElement>) {

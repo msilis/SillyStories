@@ -1,6 +1,7 @@
 import style from "./header.module.css";
 import headerImage from "../../assets/hiAugust.png";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/footer";
 
 export default function Header() {
   return (
@@ -8,6 +9,7 @@ export default function Header() {
       <Link to="/">
         <img src={headerImage} className={style.headerImage} />
       </Link>
+      <Footer />
     </div>
   );
 }

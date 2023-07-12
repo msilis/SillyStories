@@ -1,0 +1,26 @@
+.savedContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.storyContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.storyItem {
+  color: white;
+  background-color: rgba(41, 40, 40, 0.7);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+summary {
+  font-weight: 600;
+}
+
+.detailsText {
+  margin-top: 0.5rem;
+}

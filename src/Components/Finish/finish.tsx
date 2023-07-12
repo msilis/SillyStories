@@ -5,6 +5,8 @@ import { storyEdit } from "../Utilities/storyEdit";
 import { StoryEdit } from "../Interfaces/editProps";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { saveStory } from "../Utilities/saveStory";
+import { SaveProps } from "../Interfaces/saveProps";
 
 export default function Finish(
   props: FinishState & StoryEdit
@@ -23,6 +25,14 @@ export default function Finish(
     navigate("/");
   };
 
+  //Save button functionality
+  const saveClick = () => {
+    const saveProps: SaveProps = {
+      displayStory: displayStory,
+    };
+    saveStory(saveProps);
+  };
+
   return (
     <div className={style.storyContainer}>
       <h1>Here is your story:</h1>
@@ -31,7 +41,9 @@ export default function Finish(
         <Button className={style.button} onClick={newClick}>
           New Story
         </Button>
-        <Button className={style.button}>Save</Button>
+        <Button className={style.button} onClick={() => saveClick()}>
+          Save
+        </Button>
       </div>
     </div>
   );
