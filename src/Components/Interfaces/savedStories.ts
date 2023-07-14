@@ -1,4 +1,4 @@
 export interface SavedArray {
-  id: string;
+  _id: string;
   story: string;
 }

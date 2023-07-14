@@ -1,4 +1,5 @@
 import { SaveProps } from "../Interfaces/saveProps";
+import { showErrorToast, showSuccessToast } from "./toasts";
 
 const saveStory = (displayStory: SaveProps) => {
   const storyData = {
@@ -12,10 +13,15 @@ const saveStory = (displayStory: SaveProps) => {
     },
     body: JSON.stringify(storyData),
   })
-    .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((response) => {
+      if (response.status === 201) {
+        showSuccessToast("Story saved!");
+        return response.json();
+      }
+    })
     .catch((err) => {
       console.log(err);
+      showErrorToast("There was an error saving your story.");
     });
 };
 

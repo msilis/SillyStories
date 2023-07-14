@@ -2,7 +2,7 @@ import style from "./card.module.css";
 import { useRef, RefObject, useEffect } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { showToast } from "../Utilities/toasts";
+import { showErrorToast } from "../Utilities/toasts";
 import { storyFetch } from "../Utilities/sillyNetworkCall";
 import { CardProps } from "../Interfaces/cardProps";
 import { ButtonClick } from "../Interfaces/buttonClick";
@@ -21,7 +21,9 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
   //Next button
   const nextClick: ButtonClick = () => {
     if (inputValue.current?.value === "") {
-      showToast(`You need to enter a(n) ${props.cardProps.placeholderText}`);
+      showErrorToast(
+        `You need to enter a(n) ${props.cardProps.placeholderText}`
+      );
     } else {
       navigate(`${props.cardProps.next}`);
       console.log(inputValue.current?.value);
@@ -52,7 +54,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
         navigate("/finish");
       }
     } catch (err) {
-      showToast("There was a problem");
+      showErrorToast("There was a problem");
       console.log(err);
     }
   };
