@@ -1,3 +1,4 @@
+import { TOAST_TEXT } from "../../ui-text/ui-text";
 import { showErrorToast, showSuccessToast } from "./toasts";
 
 const deleteStory = (id: string) => {
@@ -12,15 +13,15 @@ const deleteStory = (id: string) => {
   })
     .then((response) => {
       if (response.status === 200) {
-        showSuccessToast("Story deleted sucessfully");
+        showSuccessToast(TOAST_TEXT.deleteSuccess);
         return response.json();
       } else {
-        showErrorToast("I couldn't delete your story.");
+        showErrorToast(TOAST_TEXT.deleteError);
       }
     })
     .catch((err) => {
       console.log(err);
-      showErrorToast("There was an issue deleting the story.");
+      showErrorToast(TOAST_TEXT.deleteCatchError);
     });
 };
 
