@@ -9,7 +9,7 @@ import { saveStory } from "../Utilities/saveStory";
 import { SaveProps } from "../Interfaces/saveProps";
 
 export default function Finish(
-  props: FinishState & StoryEdit
+  props: FinishState & StoryEdit,
 ): React.ReactNode {
   const displayStory = storyEdit({ storyState: props.storyState });
   const navigate = useNavigate();

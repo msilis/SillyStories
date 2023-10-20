@@ -30,7 +30,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
 
       localStorage.setItem(
         `${props.cardProps.cardControl}`,
-        inputValue.current?.value || ""
+        inputValue.current?.value || "",
       );
     }
   };
@@ -48,7 +48,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
       if (props.cardProps.setStoryState) {
         localStorage.setItem(
           `${props.cardProps.cardControl}`,
-          inputValue.current?.value || ""
+          inputValue.current?.value || "",
         );
         props.cardProps.setStoryState(fetchedStory);
         navigate("/finish");
