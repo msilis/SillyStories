@@ -4,16 +4,21 @@ import { fetchSavedStories } from "../Utilities/getSavedStory";
 import { SavedArray } from "../Interfaces/savedStories";
 import { deleteStory } from "../Utilities/deleteStory";
 
+const getStories = async () => {
+  const mySavedStories = await fetchSavedStories();
+  return mySavedStories;
+};
+
 export default function SavedStories() {
   const [savedStories, setSavedStories] = useState<SavedArray[]>([]);
 
-  const getStories = async () => {
-    const mySavedStories = await fetchSavedStories();
-    setSavedStories(mySavedStories);
+  const mySavedStories = async () => {
+    const stories = await getStories();
+    setSavedStories(stories);
   };
 
   useEffect(() => {
-    getStories();
+    mySavedStories();
   }, []);
 
   return (
@@ -29,7 +34,6 @@ export default function SavedStories() {
                 <button
                   onClick={() => {
                     const id = story._id;
-
                     deleteStory(id);
                   }}
                 >

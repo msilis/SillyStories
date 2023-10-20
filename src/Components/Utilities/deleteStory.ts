@@ -1,10 +1,8 @@
 import { showErrorToast, showSuccessToast } from "./toasts";
 
 const deleteStory = (id: string) => {
-  console.log(id);
 
   const storyId = { storyId: id };
-  console.log({ storyId });
   return fetch("http://localhost:8086/deleteStory", {
     method: "POST",
     headers: {
