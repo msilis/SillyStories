@@ -11,7 +11,6 @@ const deleteStory = (id: string) => {
     body: JSON.stringify(storyId),
   })
     .then((response) => {
-      console.log(response);
       if (response.status === 200) {
         showSuccessToast("Story deleted sucessfully");
         return response.json();
