@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function Finish(
-  props: FinishState & StoryEdit
+  props: FinishState & StoryEdit,
 ): React.ReactNode {
   const displayStory = storyEdit({ storyState: props.storyState });
   const navigate = useNavigate();
