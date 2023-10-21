@@ -1,19 +1,19 @@
 .button {
-  height: 3rem;
-  width: 6rem;
-  outline: 3px solid black;
-  border-radius: 10px;
-  background-color: lightblue;
-  box-shadow: 5px 5px 5px black;
-  font-size: 1.5rem;
-  font-weight: bold;
-  transition: 0.3s;
+    height: 3rem;
+    width: 6rem;
+    outline: 3px solid black;
+    border-radius: 10px;
+    background-color: lightblue;
+    box-shadow: 5px 5px 5px black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .button:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .button:active {
-  box-shadow: 8px 8px 8px gray;
+    box-shadow: 8px 8px 8px gray;
 }

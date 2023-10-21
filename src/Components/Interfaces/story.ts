@@ -1,4 +1,4 @@
 export interface Story {
-  id: string
-  story: string
+    id: string
+    story: string
 }
