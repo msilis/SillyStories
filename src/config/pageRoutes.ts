@@ -5,4 +5,6 @@ export enum PAGE_ROUTES {
     city = '/city',
     start = '/start',
     color = '/color',
+    saved = '/saved',
+    about = '/about',
 }

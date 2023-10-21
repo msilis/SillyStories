@@ -1,13 +1,13 @@
 import { SaveProps } from '../Interfaces/saveProps'
+import { method } from './sillyNetworkCall'
 import { showErrorToast, showSuccessToast } from './toasts'
 
 const saveStory = (displayStory: SaveProps) => {
     const storyData = {
         story: displayStory,
     }
-    console.log(storyData)
     return fetch('http://localhost:8086/saveStory', {
-        method: 'POST',
+        method: method.post,
         headers: {
             'content-type': 'application/json',
         },

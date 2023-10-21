@@ -1,3 +1,8 @@
+export const method = {
+    post: 'POST',
+    get: 'GET',
+}
+
 const storyFetch = () => {
     return fetch('https://silly-stories-backend.onrender.com/randomStory')
         .then((response) => response.json())
