@@ -5,12 +5,10 @@ export enum TOAST_TEXT {
 }
 
 export enum CARD_TEXT {
-    animalCardTitle = 'I need the name of an animal!',
-    animalPlaceholderText = 'Animal Name',
-    colorCardTitle = 'Give me a colour!',
-    colorPlaceholderText = 'Colour',
-    foodCardTitle = 'Write the name of a food:',
-    foodPlaceholderText = 'Food',
-    
-
+  animalCardTitle = 'I need the name of an animal!',
+  animalPlaceholderText = 'Animal Name',
+  colorCardTitle = 'Give me a colour!',
+  colorPlaceholderText = 'Colour',
+  foodCardTitle = 'Write the name of a food:',
+  foodPlaceholderText = 'Food',
 }
