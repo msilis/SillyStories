@@ -3,3 +3,14 @@ export enum TOAST_TEXT {
   deleteError = 'I could not delete your story.',
   deleteCatchError = 'There was an issue deleting the story.',
 }
+
+export enum CARD_TEXT {
+    animalCardTitle = 'I need the name of an animal!',
+    animalPlaceholderText = 'Animal Name',
+    colorCardTitle = 'Give me a colour!',
+    colorPlaceholderText = 'Colour',
+    foodCardTitle = 'Write the name of a food:',
+    foodPlaceholderText = 'Food',
+    
+
+}
