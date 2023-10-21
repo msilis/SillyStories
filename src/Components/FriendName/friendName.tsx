@@ -1,16 +1,15 @@
+import { CARD_TEXT } from '../../ui-text/ui-text'
 import InfoCard from '../Card/card'
 import { CardProps } from '../Interfaces/cardProps'
 
 export default function FriendName(): JSX.Element {
   const infoCardProps: CardProps = {
-    cardTitle: "Write a friend's name:",
-    placeholderText: "Friend's name",
+    cardTitle: CARD_TEXT.friendCardTitle,
+    placeholderText: CARD_TEXT.friendPlaceholderText,
     cardControl: 'friendNameInput',
-    next: '/color',
+    next: '/color', //TODO (ms) this will need a route file
     back: '/',
   }
-
-  console.log(infoCardProps, 'infoCard props')
 
   return <InfoCard cardProps={infoCardProps} />
 }

@@ -11,4 +11,6 @@ export enum CARD_TEXT {
   colorPlaceholderText = 'Colour',
   foodCardTitle = 'Write the name of a food:',
   foodPlaceholderText = 'Food',
+  friendCardTitle = `Write a friend's name:`,
+  friendPlaceholderText = `Friend's name`,
 }
