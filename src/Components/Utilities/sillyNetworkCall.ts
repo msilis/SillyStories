@@ -1,14 +1,14 @@
 const storyFetch = () => {
-  return fetch("https://silly-stories-backend.onrender.com/randomStory")
+  return fetch('https://silly-stories-backend.onrender.com/randomStory')
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-      return data.story;
+      console.log(data)
+      return data.story
     })
     .catch((err) => {
-      console.log(err);
-      throw err;
-    });
-};
+      console.log(err)
+      throw err
+    })
+}
 
-export { storyFetch };
+export { storyFetch }

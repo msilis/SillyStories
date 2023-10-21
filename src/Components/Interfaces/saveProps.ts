@@ -1,3 +1,3 @@
 export interface SaveProps {
-  displayStory: string;
+  displayStory: string
 }

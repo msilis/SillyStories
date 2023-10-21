@@ -1,9 +1,9 @@
-import style from "./home.module.css";
-import { Card, Button } from "react-bootstrap";
+import style from './home.module.css'
+import { Card, Button } from 'react-bootstrap'
 
 type homeProps = {
-  onClick: () => void;
-};
+  onClick: () => void
+}
 
 export default function Home(props: homeProps): JSX.Element {
   return (
@@ -15,5 +15,5 @@ export default function Home(props: homeProps): JSX.Element {
         </Button>
       </Card.Body>
     </Card>
-  );
+  )
 }

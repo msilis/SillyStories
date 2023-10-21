@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import style from "./footer.module.css";
+import { Link } from 'react-router-dom'
+import style from './footer.module.css'
 
 export default function Footer() {
   return (
@@ -17,5 +17,5 @@ export default function Footer() {
         </li>
       </ul>
     </div>
-  );
+  )
 }

@@ -1,27 +1,27 @@
-import style from "./App.module.css";
-import { useEffect, useState } from "react";
-import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
-import Header from "./Components/Header/header";
-import FriendName from "./Components/FriendName/friendName";
-import Home from "./Components/Home/home";
-import FavoriteColor from "./Components/FavoriteColor/favoriteColor";
-import Food from "./Components/Food/food";
-import City from "./Components/City/city";
-import Animal from "./Components/Animal/animal";
-import Finish from "./Components/Finish/finish";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { clearStorage } from "./Components/Utilities/clearStorage";
-import SavedStories from "./Components/Saved/savedStories";
-import About from "./Components/About/about";
+import style from './App.module.css'
+import { useEffect, useState } from 'react'
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom'
+import Header from './Components/Header/header'
+import FriendName from './Components/FriendName/friendName'
+import Home from './Components/Home/home'
+import FavoriteColor from './Components/FavoriteColor/favoriteColor'
+import Food from './Components/Food/food'
+import City from './Components/City/city'
+import Animal from './Components/Animal/animal'
+import Finish from './Components/Finish/finish'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { clearStorage } from './Components/Utilities/clearStorage'
+import SavedStories from './Components/Saved/savedStories'
+import About from './Components/About/about'
 
 function App(): JSX.Element {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigate = useNavigate()
+  const location = useLocation()
 
   //State to keep story
-  const [storyState, setStoryState] = useState<string>("");
-  const [editedStory, setEditedStory] = useState<string>("");
+  const [storyState, setStoryState] = useState<string>('')
+  const [editedStory, setEditedStory] = useState<string>('')
 
   //remove values from localStorage if there are any
 
@@ -50,22 +50,22 @@ function App(): JSX.Element {
         <Route path="/saved" element={<SavedStories />}></Route>
         <Route path="/about" element={<About />}></Route>
       </Routes>
-    );
+    )
   }
 
   useEffect(() => {
-    if (location.pathname === "/") {
-      clearStorage();
+    if (location.pathname === '/') {
+      clearStorage()
     }
-  }, [location.pathname]);
+  }, [location.pathname])
 
   useEffect(() => {
-    console.log(storyState, "story state");
-  }, [storyState]);
+    console.log(storyState, 'story state')
+  }, [storyState])
 
   function handleGoClick() {
-    console.log("handleGoClick fired");
-    navigate("/start");
+    console.log('handleGoClick fired')
+    navigate('/start')
   }
 
   return (
@@ -74,7 +74,7 @@ function App(): JSX.Element {
       <StoryRoutes />
       <ToastContainer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
