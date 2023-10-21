@@ -2,7 +2,6 @@ import { TOAST_TEXT } from "../../ui-text/ui-text";
 import { showErrorToast, showSuccessToast } from "./toasts";
 
 const deleteStory = (id: string) => {
-
   const storyId = { storyId: id };
   return fetch("http://localhost:8086/deleteStory", {
     method: "POST",

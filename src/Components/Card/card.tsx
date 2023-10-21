@@ -22,7 +22,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
   const nextClick: ButtonClick = () => {
     if (inputValue.current?.value === "") {
       showErrorToast(
-        `You need to enter a(n) ${props.cardProps.placeholderText}`
+        `You need to enter a(n) ${props.cardProps.placeholderText}`,
       );
     } else {
       navigate(`${props.cardProps.next}`);
