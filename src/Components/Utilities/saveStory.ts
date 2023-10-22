@@ -1,3 +1,4 @@
+import { TOAST_TEXT } from '../../ui-text/ui-text'
 import { SaveProps } from '../Interfaces/saveProps'
 import { method } from './sillyNetworkCall'
 import { showErrorToast, showSuccessToast } from './toasts'
@@ -21,7 +22,7 @@ const saveStory = (displayStory: SaveProps) => {
         })
         .catch((err) => {
             console.log(err)
-            showErrorToast('There was an error saving your story.')
+            showErrorToast(TOAST_TEXT.saveStoryError)
         })
 }
 
