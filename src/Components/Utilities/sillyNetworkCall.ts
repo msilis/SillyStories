@@ -1,18 +1,18 @@
 export const method = {
-    post: 'POST',
-    get: 'GET',
-}
+  post: "POST",
+  get: "GET",
+};
 
 const storyFetch = () => {
-    return fetch('https://silly-stories-backend.onrender.com/randomStory')
-        .then((response) => response.json())
-        .then((data) => {
-            return data.story
-        })
-        .catch((err) => {
-            console.log(err)
-            throw err
-        })
-}
+  return fetch("https://silly-stories-backend.onrender.com/randomStory")
+    .then((response) => response.json())
+    .then((data) => {
+      return data.story;
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
+};
 
-export { storyFetch }
+export { storyFetch };
