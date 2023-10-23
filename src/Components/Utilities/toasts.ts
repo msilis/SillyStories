@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
 
 const showErrorToast = (toastText: string) => {
     toast.error(toastText, {
@@ -10,8 +10,8 @@ const showErrorToast = (toastText: string) => {
         draggable: true,
         progress: undefined,
         theme: 'light',
-    })
-}
+    });
+};
 
 const showSuccessToast = (toastText: string) => {
     toast.success(toastText, {
@@ -23,7 +23,7 @@ const showSuccessToast = (toastText: string) => {
         draggable: true,
         progress: undefined,
         theme: 'light',
-    })
-}
+    });
+};
 
-export { showErrorToast, showSuccessToast }
+export { showErrorToast, showSuccessToast };

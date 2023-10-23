@@ -1,9 +1,9 @@
-import { TOAST_TEXT } from '../../ui-text/ui-text'
-import { method } from './sillyNetworkCall'
-import { showErrorToast, showSuccessToast } from './toasts'
+import { TOAST_TEXT } from '../../ui-text/ui-text';
+import { method } from './sillyNetworkCall';
+import { showErrorToast, showSuccessToast } from './toasts';
 
 const deleteStory = (id: string) => {
-    const storyId = { storyId: id }
+    const storyId = { storyId: id };
     return fetch('http://localhost:8086/deleteStory', {
         method: method.post,
         headers: {
@@ -13,16 +13,16 @@ const deleteStory = (id: string) => {
     })
         .then((response) => {
             if (response.status === 200) {
-                showSuccessToast(TOAST_TEXT.deleteSuccess)
-                return response.json()
+                showSuccessToast(TOAST_TEXT.deleteSuccess);
+                return response.json();
             } else {
-                showErrorToast(TOAST_TEXT.deleteError)
+                showErrorToast(TOAST_TEXT.deleteError);
             }
         })
         .catch((err) => {
-            console.log(err)
-            showErrorToast(TOAST_TEXT.deleteCatchError)
-        })
-}
+            console.log(err);
+            showErrorToast(TOAST_TEXT.deleteCatchError);
+        });
+};
 
-export { deleteStory }
+export { deleteStory };
