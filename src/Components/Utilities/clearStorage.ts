@@ -1,4 +1,4 @@
-const clearStorage = () => {
+const clearStorage = (): void => {
     if (localStorage.getItem('friendNameInput') !== null) {
         localStorage.removeItem('friendNameInput');
     }
