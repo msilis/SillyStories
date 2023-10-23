@@ -1,12 +1,12 @@
-import { FinishState } from '../Interfaces/finishProps'
+import { type FinishState } from '../Interfaces/finishProps'
 import style from './finish.module.css'
 import { useEffect } from 'react'
 import { storyEdit } from '../Utilities/storyEdit'
-import { StoryEdit } from '../Interfaces/editProps'
+import { type StoryEdit } from '../Interfaces/editProps'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { saveStory } from '../Utilities/saveStory'
-import { SaveProps } from '../Interfaces/saveProps'
+import { type SaveProps } from '../Interfaces/saveProps'
 import { PAGE_ROUTES } from '../../config/pageRoutes'
 
 export default function Finish(
@@ -17,19 +17,19 @@ export default function Finish(
 
     useEffect(() => {
         storyEdit({ storyState: props.storyState })
-        //Disable empty array eslint complaint -- I really do want it to run only once!
+        // Disable empty array eslint complaint -- I really do want it to run only once!
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    //New story click functionality
+    // New story click functionality
     const newClick = () => {
         navigate(PAGE_ROUTES.home)
     }
 
-    //Save button functionality
+    // Save button functionality
     const saveClick = () => {
         const saveProps: SaveProps = {
-            displayStory: displayStory,
+            displayStory,
         }
         saveStory(saveProps)
     }
@@ -42,7 +42,12 @@ export default function Finish(
                 <Button className={style.button} onClick={newClick}>
                     New Story
                 </Button>
-                <Button className={style.button} onClick={() => saveClick()}>
+                <Button
+                    className={style.button}
+                    onClick={() => {
+                        saveClick()
+                    }}
+                >
                     Save
                 </Button>
             </div>
