@@ -5,7 +5,7 @@ import { storyEdit } from '../Utilities/storyEdit'
 import { type StoryEdit } from '../Interfaces/editProps'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-import { saveStory } from '../Utilities/saveStory'
+import { type SaveResponse, saveStory } from '../Utilities/saveStory'
 import { type SaveProps } from '../Interfaces/saveProps'
 import { PAGE_ROUTES } from '../../config/pageRoutes'
 
@@ -18,20 +18,19 @@ export default function Finish(
     useEffect(() => {
         storyEdit({ storyState: props.storyState })
         // Disable empty array eslint complaint -- I really do want it to run only once!
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // New story click functionality
-    const newClick = () => {
+    const newClick = (): void => {
         navigate(PAGE_ROUTES.home)
     }
 
     // Save button functionality
-    const saveClick = () => {
+    const saveClick = async (): Promise<SaveResponse | undefined> => {
         const saveProps: SaveProps = {
             displayStory,
         }
-        saveStory(saveProps)
+        return await saveStory(saveProps)
     }
 
     return (
@@ -45,7 +44,7 @@ export default function Finish(
                 <Button
                     className={style.button}
                     onClick={() => {
-                        saveClick()
+                        void saveClick()
                     }}
                 >
                     Save
