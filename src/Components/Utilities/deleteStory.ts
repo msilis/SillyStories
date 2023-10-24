@@ -2,9 +2,14 @@ import { TOAST_TEXT } from '../../ui-text/ui-text';
 import { method } from './sillyNetworkCall';
 import { showErrorToast, showSuccessToast } from './toasts';
 
-const deleteStory = (id: string) => {
+export interface deleteApiProps {
+    acknowledgede: boolean;
+    deleteCount: number;
+}
+s;
+const deleteStory = async (id: string): Promise<deleteApiProps | undefined> => {
     const storyId = { storyId: id };
-    return fetch('http://localhost:8086/deleteStory', {
+    return await fetch('http://localhost:8086/deleteStory', {
         method: method.post,
         headers: {
             'content-type': 'application/json',
