@@ -4,16 +4,16 @@ export interface savedStoryProps {
     _v: number;
 }
 
-const fetchSavedStories = async (): Promise<savedStoryProps | undefined> => {
-    return await fetch('http://localhost:8086/getSavedStories')
-        .then(async (response) => await response.json())
-        .then((data) => {
-            return data;
-        })
-        .catch((err) => {
-            console.log(err);
-            throw err;
-        });
+const fetchSavedStories = async (): Promise<savedStoryProps[] | undefined> => {
+    const response = await fetch('http://localhost:8086/getSavedStories');
+    if (!response.ok) {
+        throw new Error('Failed to fetch saved stories');
+    }
+    const data = await response.json();
+    if (!Array.isArray(data)) {
+        throw new Error('Invalid response data');
+    }
+    return data;
 };
 
 export { fetchSavedStories };
