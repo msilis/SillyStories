@@ -16,10 +16,10 @@ const deleteStory = async (id: string): Promise<deleteApiProps | undefined> => {
         },
         body: JSON.stringify(storyId),
     })
-        .then((response) => {
+        .then(async (response) => {
             if (response.status === 200) {
                 showSuccessToast(TOAST_TEXT.deleteSuccess);
-                return response.json();
+                return await response.json();
             } else {
                 showErrorToast(TOAST_TEXT.deleteError);
             }
