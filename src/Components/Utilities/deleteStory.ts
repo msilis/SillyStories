@@ -6,7 +6,7 @@ export interface deleteApiProps {
     acknowledgede: boolean;
     deleteCount: number;
 }
-s;
+
 const deleteStory = async (id: string): Promise<deleteApiProps | undefined> => {
     const storyId = { storyId: id };
     return await fetch('http://localhost:8086/deleteStory', {
