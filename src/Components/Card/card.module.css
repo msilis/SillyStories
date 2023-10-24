@@ -1,54 +1,54 @@
 .cardContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  width: 18rem;
-  outline: 6px solid black;
-  border-radius: 10px;
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 18rem;
+    outline: 6px solid black;
+    border-radius: 10px;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .cardBody {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .buttonContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
 }
 
 .button {
-  margin-top: 1rem;
-  height: 3rem;
-  width: 6rem;
-  outline: 3px solid black;
-  border-radius: 10px;
-  background-color: lightblue;
-  box-shadow: 5px 5px 5px black;
-  font-size: 1.5rem;
-  font-weight: bold;
-  transition: 0.3s;
+    margin-top: 1rem;
+    height: 3rem;
+    width: 6rem;
+    outline: 3px solid black;
+    border-radius: 10px;
+    background-color: lightblue;
+    box-shadow: 5px 5px 5px black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .button:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .button:active {
-  box-shadow: 8px 8px 8px gray;
+    box-shadow: 8px 8px 8px gray;
 }
 
 .cardTitle {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .input {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-  width: 90%;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    width: 90%;
 }

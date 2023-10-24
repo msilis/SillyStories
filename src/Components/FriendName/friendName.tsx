@@ -1,16 +1,16 @@
-import InfoCard from "../Card/card";
-import { CardProps } from "../Interfaces/cardProps";
+import { PAGE_ROUTES } from '../../config/pageRoutes'
+import { CARD_TEXT } from '../../ui-text/ui-text'
+import InfoCard from '../Card/card'
+import { CardProps } from '../Interfaces/cardProps'
 
 export default function FriendName(): JSX.Element {
-  const infoCardProps: CardProps = {
-    cardTitle: "Write a friend's name:",
-    placeholderText: "Friend's name",
-    cardControl: "friendNameInput",
-    next: "/color",
-    back: "/",
-  };
+    const infoCardProps: CardProps = {
+        cardTitle: CARD_TEXT.friendCardTitle,
+        placeholderText: CARD_TEXT.friendPlaceholderText,
+        cardControl: 'friendNameInput',
+        next: PAGE_ROUTES.color,
+        back: PAGE_ROUTES.home,
+    }
 
-  console.log(infoCardProps, "infoCard props");
-
-  return <InfoCard cardProps={infoCardProps} />;
+    return <InfoCard cardProps={infoCardProps} />
 }

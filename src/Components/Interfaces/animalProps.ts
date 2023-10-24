@@ -1,3 +1,3 @@
 export interface AnimalProps {
-  setStoryState: React.Dispatch<React.SetStateAction<string>>;
+    setStoryState: React.Dispatch<React.SetStateAction<string>>;
 }
