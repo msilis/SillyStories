@@ -27,6 +27,7 @@ const deleteStory = async (id: string): Promise<deleteApiProps | undefined> => {
         .catch((err) => {
             console.log(err);
             showErrorToast(TOAST_TEXT.deleteCatchError);
+            throw new Error('There was an error deleting the story.');
         });
 };
 

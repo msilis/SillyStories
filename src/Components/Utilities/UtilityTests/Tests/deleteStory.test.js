@@ -36,8 +36,7 @@ test('delete story with error', async () => {
     global.fetch = fetchMock;
 
     const storyId = '1234';
-    const expectedError = new Error('Network error');
+    const expectedError = new Error('There was an error deleting the story.');
     fetchMock.mockRejectedValue(expectedError);
-
     await expect(deleteStory(storyId)).rejects.toThrow(expectedError);
 });
