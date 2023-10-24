@@ -2,6 +2,8 @@
 
 A silly story generator app for my son to use. He can add in his friend's names and get back a generated story from a small library of stories made by ChatGPT.
 
+React application created with Vite and using Typescript.
+
 ### Installation
 
 `npm install`
