@@ -3,7 +3,7 @@ import { method } from './sillyNetworkCall';
 import { showErrorToast, showSuccessToast } from './toasts';
 
 export interface deleteApiProps {
-    acknowledgede: boolean;
+    acknowledged: boolean;
     deleteCount: number;
 }
 

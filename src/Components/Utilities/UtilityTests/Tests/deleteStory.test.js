@@ -1,34 +1,43 @@
-import { test, expect, vi } from 'vitest';
 import { deleteStory } from '../../deleteStory';
-import { TOAST_TEXT } from '../../../../ui-text/ui-text';
-import { showErrorToast, showSuccessToast } from '../../toasts';
+import { test, vi, expect } from 'vitest';
+import { fn } from 'jest-mock';
 
-test('makes a DELETE request to the correct endpoint', async () => {
+test('delete story successfully', async () => {
     const fetchMock = vi.fn();
     global.fetch = fetchMock;
 
+    const storyId = '1234';
     const expectedResponse = {
         acknowledged: true,
         deleteCount: 1,
     };
-
     fetchMock.mockResolvedValue({
         status: 200,
         json: async () => expectedResponse,
     });
+
+    const result = await deleteStory(storyId);
+
+    expect(fetchMock).toHaveBeenCalledWith(
+        'http://localhost:8086/deleteStory',
+        {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ storyId }),
+        }
+    );
+    expect(result).toEqual(expectedResponse);
 });
 
-test('makes a POST request to the correct endpoint and handles an unsuccessful response correctly', async () => {
-    const fetchMock = vi.fn();
+test('delete story with error', async () => {
+    const fetchMock = fn();
     global.fetch = fetchMock;
 
-    const expectedResponse = {
-        acknowledged: false,
-        deleteCount: 0,
-    };
+    const storyId = '1234';
+    const expectedError = new Error('Network error');
+    fetchMock.mockRejectedValue(expectedError);
 
-    fetchMock.mockResolvedValue({
-        status: 200,
-        json: async () => expectedResponse,
-    });
+    await expect(deleteStory(storyId)).rejects.toThrow(expectedError);
 });
