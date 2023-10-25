@@ -17,3 +17,7 @@ export enum CARD_TEXT {
     cityCardTitle = 'Give me the name of a city!',
     cityCPlaceholderText = 'City Name',
 }
+
+export enum PAGE_TEXT {
+    aboutText = 'About',
+}
