@@ -20,12 +20,10 @@ export default function Finish(
         // Disable empty array eslint complaint -- I really do want it to run only once!
     }, []);
 
-    // New story click functionality
     const newClick = (): void => {
         navigate(PAGE_ROUTES.home);
     };
 
-    // Save button functionality
     const saveClick = async (): Promise<SaveResponse | undefined> => {
         const saveProps: SaveProps = {
             displayStory,
