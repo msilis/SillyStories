@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Components/Header/header.tsx</title>
+    <title>Code coverage report for Components/Utilities/clearStorage.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">Components/Header</a> header.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">Components/Utilities</a> clearStorage.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -82,47 +82,44 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import style from './header.module.css';
-import headerImage from '../../assets/hiAugust.png';
-import { Link } from 'react-router-dom';
-import Footer from '../Footer/footer';
-import { PAGE_ROUTES } from '../../config/pageRoutes';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const clearStorage = (): void =&gt; {
+    if (localStorage.getItem('friendNameInput') !== null) {
+        localStorage.removeItem('friendNameInput');
+    }
+    if (localStorage.getItem('colorInput') !== null) {
+        localStorage.removeItem('colorInput');
+    }
+    if (localStorage.getItem('animalInput') !== null) {
+        localStorage.removeItem('animalInput');
+    }
+    if (localStorage.getItem('cityNameInput') !== null) {
+        localStorage.removeItem('cityNameInput');
+    }
+    if (localStorage.getItem('foodInput') !== null) {
+        localStorage.removeItem('foodInput');
+    }
+};
 &nbsp;
-export default function Header(): JSX.Element {
-    return (
-        &lt;div className={style.headerContainer}&gt;
-            &lt;Link to={PAGE_ROUTES.home}&gt;
-                &lt;img
-                    src={headerImage}
-                    className={style.headerImage}
-                    alt="August logo"
-                /&gt;
-            &lt;/Link&gt;
-            &lt;Footer /&gt;
-        &lt;/div&gt;
-    );
-}
+export { clearStorage };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
