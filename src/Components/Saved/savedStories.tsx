@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import style from './savedStories.module.css';
-import { fetchSavedStories, savedStoryProps } from '../Utilities/getSavedStory';
+import {
+    fetchSavedStories,
+    type savedStoryProps,
+} from '../Utilities/getSavedStory';
 import { type SavedArray } from '../Interfaces/savedStories';
 import { deleteStory } from '../Utilities/deleteStory';
 

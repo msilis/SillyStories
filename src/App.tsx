@@ -19,11 +19,11 @@ function App(): JSX.Element {
     const navigate = useNavigate();
     const location = useLocation();
 
-    //State to keep story
+    // State to keep story
     const [storyState, setStoryState] = useState<string>('');
     const [editedStory, setEditedStory] = useState<string>('');
 
-    //remove values from localStorage if there are any
+    // remove values from localStorage if there are any
 
     function StoryRoutes(): JSX.Element {
         return (
@@ -66,7 +66,7 @@ function App(): JSX.Element {
         console.log(storyState, 'story state');
     }, [storyState]);
 
-    function handleGoClick() {
+    function handleGoClick(): void {
         console.log('handleGoClick fired');
         navigate('/start');
     }
