@@ -7,4 +7,5 @@ export enum PAGE_ROUTES {
     color = '/color',
     saved = '/saved',
     about = '/about',
+    finish = '/finish',
 }

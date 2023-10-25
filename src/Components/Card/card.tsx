@@ -6,6 +6,8 @@ import { showErrorToast } from '../Utilities/toasts';
 import { storyFetch } from '../Utilities/sillyNetworkCall';
 import { type CardProps } from '../Interfaces/cardProps';
 import { type ButtonClick } from '../Interfaces/buttonClick';
+import { PAGE_ROUTES } from '../../config/pageRoutes';
+import { BUTTON_TEXT } from '../../ui-text/ui-text';
 
 export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
     const navigate = useNavigate();
@@ -53,7 +55,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
                     inputValue.current?.value ?? ''
                 );
                 props.cardProps.setStoryState(fetchedStory);
-                navigate('/finish');
+                navigate(PAGE_ROUTES.finish);
             }
         } catch (err) {
             showErrorToast('There was a problem');
@@ -102,15 +104,15 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
                 </Form.Group>
                 <div className={style.buttonContainer}>
                     <Button className={style.button} onClick={backClick}>
-                        Back
+                        {BUTTON_TEXT.backButtonText}
                     </Button>
                     {props.cardProps.cardControl === 'animalInput' ? (
                         <Button className={style.button} onClick={finishClick}>
-                            Finish
+                            {BUTTON_TEXT.finishButtonText}
                         </Button>
                     ) : (
                         <Button className={style.button} onClick={nextClick}>
-                            Next
+                            {BUTTON_TEXT.nextButtonText}
                         </Button>
                     )}
                 </div>
