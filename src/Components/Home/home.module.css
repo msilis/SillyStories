@@ -24,7 +24,6 @@
 
 .goButton:hover {
     cursor: pointer;
-    outline: 5px solid red;
 }
 
 .goButton:active {
