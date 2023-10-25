@@ -16,7 +16,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
 
     // Get values from localStorage to populate input fields
     const savedInputValue =
-        localStorage.getItem(`${props.cardProps.cardControl}`) != null || '';
+        localStorage.getItem(`${props.cardProps.cardControl}`) ?? '';
 
     // Next button
     const nextClick: ButtonClick = () => {
@@ -50,7 +50,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
             if (props.cardProps.setStoryState != null) {
                 localStorage.setItem(
                     `${props.cardProps.cardControl}`,
-                    inputValue.current?.value != null || ''
+                    inputValue.current?.value ?? ''
                 );
                 props.cardProps.setStoryState(fetchedStory);
                 navigate('/finish');
@@ -93,7 +93,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
                 <Form.Group controlId={props.cardProps.cardControl}>
                     <Form.Control
                         type="text"
-                        defaultValue={savedInputValue || ''}
+                        defaultValue={savedInputValue}
                         placeholder={props.cardProps.placeholderText}
                         className={style.input}
                         ref={inputValue}
