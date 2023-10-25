@@ -1,9 +1,9 @@
 import style from './home.module.css';
 import { Card, Button } from 'react-bootstrap';
 
-type homeProps = {
+interface homeProps {
     onClick: () => void;
-};
+}
 
 export default function Home(props: homeProps): JSX.Element {
     return (
