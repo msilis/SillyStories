@@ -24,3 +24,14 @@ describe('FriendName component', () => {
         expect(getByText('Next')).toBeTruthy();
     });
 });
+
+describe('FriendName component', () => {
+    it('should render the component', () => {
+        const { getByText } = render(
+            <BrowserRouter>
+                <FriendName />
+            </BrowserRouter>
+        );
+        expect(getByText('Back')).toBeTruthy();
+    });
+});

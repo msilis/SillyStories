@@ -1,7 +1,7 @@
-import { CARD_TEXT } from '../../ui-text/ui-text'
-import InfoCard from '../Card/card'
-import { CardProps } from '../Interfaces/cardProps'
-import { PAGE_ROUTES } from '../../config/pageRoutes'
+import { CARD_TEXT } from '../../ui-text/ui-text';
+import InfoCard from '../Card/card';
+import { type CardProps } from '../Interfaces/cardProps';
+import { PAGE_ROUTES } from '../../config/pageRoutes';
 
 export default function Food(): JSX.Element {
     const infoCardProps: CardProps = {
@@ -10,7 +10,7 @@ export default function Food(): JSX.Element {
         cardControl: 'foodInput',
         next: PAGE_ROUTES.city,
         back: PAGE_ROUTES.color,
-    }
+    };
 
-    return <InfoCard cardProps={infoCardProps} />
+    return <InfoCard cardProps={infoCardProps} />;
 }
