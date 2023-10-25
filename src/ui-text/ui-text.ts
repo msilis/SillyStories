@@ -16,7 +16,7 @@ export enum CARD_TEXT {
     friendPlaceholderText = "Friend's name",
     cityCardTitle = 'Give me the name of a city!',
     cityCPlaceholderText = 'City Name',
-    homeCardText = 'Let&apos;s get started!',
+    homeCardText = "Let's get started!",
 }
 
 export enum PAGE_TEXT {

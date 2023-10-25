@@ -1,7 +1,7 @@
-import { PAGE_ROUTES } from '../../config/pageRoutes'
-import { CARD_TEXT } from '../../ui-text/ui-text'
-import InfoCard from '../Card/card'
-import { CardProps } from '../Interfaces/cardProps'
+import { PAGE_ROUTES } from '../../config/pageRoutes';
+import { CARD_TEXT } from '../../ui-text/ui-text';
+import InfoCard from '../Card/card';
+import { type CardProps } from '../Interfaces/cardProps';
 
 export default function FavoriteColor(): JSX.Element {
     const infoCardProps: CardProps = {
@@ -10,7 +10,7 @@ export default function FavoriteColor(): JSX.Element {
         cardControl: 'colorInput',
         next: PAGE_ROUTES.food,
         back: PAGE_ROUTES.start,
-    }
+    };
 
-    return <InfoCard cardProps={infoCardProps} />
+    return <InfoCard cardProps={infoCardProps} />;
 }
