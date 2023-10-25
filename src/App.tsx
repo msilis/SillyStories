@@ -23,7 +23,10 @@ function App(): JSX.Element {
     const [storyState, setStoryState] = useState<string>('');
     const [editedStory, setEditedStory] = useState<string>('');
 
-    // remove values from localStorage if there are any
+    const handleGoClick = (): void => {
+        console.log('handleGoClick fired');
+        navigate('/start');
+    };
 
     function StoryRoutes(): JSX.Element {
         return (
@@ -65,11 +68,6 @@ function App(): JSX.Element {
     useEffect(() => {
         console.log(storyState, 'story state');
     }, [storyState]);
-
-    const handleGoClick = (): void => {
-        console.log('handleGoClick fired');
-        navigate('/start');
-    };
 
     return (
         <div className={style.mainContainer}>
