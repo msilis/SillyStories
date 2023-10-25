@@ -11,7 +11,7 @@
         "test:once": "vitest run",
         "coverage": "vitest run --coverage",
         "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-        "ensure": "npm run format && npm run lint && npm run coverage"
+        "ensure": "npm run format && npm run lint && npm run test:once"
     },
     "dependencies": {
         "jest-environment-jsdom": "^29.7.0",
