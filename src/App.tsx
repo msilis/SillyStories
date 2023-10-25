@@ -66,10 +66,10 @@ function App(): JSX.Element {
         console.log(storyState, 'story state');
     }, [storyState]);
 
-    function handleGoClick(): void {
+    const handleGoClick = (): void => {
         console.log('handleGoClick fired');
         navigate('/start');
-    }
+    };
 
     return (
         <div className={style.mainContainer}>
