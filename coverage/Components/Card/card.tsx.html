@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.71% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>74/118</span>
+                <span class='fraction'>75/120</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.71% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>74/118</span>
+                <span class='fraction'>75/120</span>
             </div>
         
             
@@ -181,7 +181,9 @@
 <a name='L116'></a><a href='#L116'>116</a>
 <a name='L117'></a><a href='#L117'>117</a>
 <a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -217,12 +219,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
@@ -299,89 +303,91 @@
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import style from './card.module.css'
-import { useRef, RefObject, useEffect } from 'react'
-import { Card, Form, Button } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
-import { showErrorToast } from '../Utilities/toasts'
-import { storyFetch } from '../Utilities/sillyNetworkCall'
-import { CardProps } from '../Interfaces/cardProps'
-import { ButtonClick } from '../Interfaces/buttonClick'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import style from './card.module.css';
+import { useRef, type RefObject, useEffect } from 'react';
+import { Card, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { showErrorToast } from '../Utilities/toasts';
+import { storyFetch } from '../Utilities/sillyNetworkCall';
+import { type CardProps } from '../Interfaces/cardProps';
+import { type ButtonClick } from '../Interfaces/buttonClick';
 &nbsp;
 export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 &nbsp;
-    //Input refs
+    // Input refs
     const inputValue: RefObject&lt;HTMLInputElement&gt; =
-        useRef&lt;HTMLInputElement&gt;(null)
+        useRef&lt;HTMLInputElement&gt;(null);
 &nbsp;
-    //Get values from localStorage to populate input fields
+    // Get values from localStorage to populate input fields
     const savedInputValue =
-        localStorage.getItem(`${props.cardProps.cardControl}`) || ''
+        localStorage.getItem(`${props.cardProps.cardControl}`) ?? '';
 &nbsp;
-    //Next button
+    // Next button
     const nextClick: ButtonClick = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (inputValue.current?.value === '') {</span>
+<span class="cstat-no" title="statement not covered" >        const inputValueValue = inputValue.current?.value ?? '';</span>
+<span class="cstat-no" title="statement not covered" >        if (inputValueValue === '') {</span>
 <span class="cstat-no" title="statement not covered" >            showErrorToast(</span>
 <span class="cstat-no" title="statement not covered" >                `You need to enter a(n) ${props.cardProps.placeholderText}`</span>
-<span class="cstat-no" title="statement not covered" >            )</span>
+<span class="cstat-no" title="statement not covered" >            );</span>
 <span class="cstat-no" title="statement not covered" >        } else {</span>
-<span class="cstat-no" title="statement not covered" >            navigate(`${props.cardProps.next}`)</span>
-<span class="cstat-no" title="statement not covered" >            console.log(inputValue.current?.value)</span>
+<span class="cstat-no" title="statement not covered" >            navigate(`${props.cardProps.next}`);</span>
+<span class="cstat-no" title="statement not covered" >            console.log(inputValueValue);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >            localStorage.setItem(</span>
 <span class="cstat-no" title="statement not covered" >                `${props.cardProps.cardControl}`,</span>
-<span class="cstat-no" title="statement not covered" >                inputValue.current?.value || ''</span>
-<span class="cstat-no" title="statement not covered" >            )</span>
+<span class="cstat-no" title="statement not covered" >                inputValueValue</span>
+<span class="cstat-no" title="statement not covered" >            );</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
 &nbsp;
-    //Back button
+    // Back button
 &nbsp;
     const backClick: ButtonClick = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        navigate(`${props.cardProps.back}`)</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >        navigate(`${props.cardProps.back}`);</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
 &nbsp;
-    //Finish button
+    // Finish button
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     const finishClick: ButtonClick = <span class="fstat-no" title="function not covered" >async () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        try {</span>
-<span class="cstat-no" title="statement not covered" >            const fetchedStory = await storyFetch()</span>
-<span class="cstat-no" title="statement not covered" >            if (props.cardProps.setStoryState) {</span>
+<span class="cstat-no" title="statement not covered" >            const fetchedStory = await storyFetch();</span>
+<span class="cstat-no" title="statement not covered" >            if (props.cardProps.setStoryState != null) {</span>
 <span class="cstat-no" title="statement not covered" >                localStorage.setItem(</span>
 <span class="cstat-no" title="statement not covered" >                    `${props.cardProps.cardControl}`,</span>
-<span class="cstat-no" title="statement not covered" >                    inputValue.current?.value || ''</span>
-<span class="cstat-no" title="statement not covered" >                )</span>
-<span class="cstat-no" title="statement not covered" >                props.cardProps.setStoryState(fetchedStory)</span>
-<span class="cstat-no" title="statement not covered" >                navigate('/finish')</span>
+<span class="cstat-no" title="statement not covered" >                    inputValue.current?.value ?? ''</span>
+<span class="cstat-no" title="statement not covered" >                );</span>
+<span class="cstat-no" title="statement not covered" >                props.cardProps.setStoryState(fetchedStory);</span>
+<span class="cstat-no" title="statement not covered" >                navigate('/finish');</span>
 <span class="cstat-no" title="statement not covered" >            }</span>
 <span class="cstat-no" title="statement not covered" >        } catch (err) {</span>
-<span class="cstat-no" title="statement not covered" >            showErrorToast('There was a problem')</span>
-<span class="cstat-no" title="statement not covered" >            console.log(err)</span>
+<span class="cstat-no" title="statement not covered" >            showErrorToast('There was a problem');</span>
+<span class="cstat-no" title="statement not covered" >            console.log(err);</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
 &nbsp;
-    //Enter key
-<span class="fstat-no" title="function not covered" >    function handleEnterKey(e: React.KeyboardEvent&lt;HTMLInputElement&gt;) {</span>
+    // Enter key
+<span class="fstat-no" title="function not covered" >    function handleEnterKey(e: React.KeyboardEvent&lt;HTMLInputElement&gt;): void {</span>
 <span class="cstat-no" title="statement not covered" >        if (</span>
 <span class="cstat-no" title="statement not covered" >            e.key === 'Enter' &amp;&amp;</span>
 <span class="cstat-no" title="statement not covered" >            props.cardProps.cardControl !== 'animalInput'</span>
 <span class="cstat-no" title="statement not covered" >        ) {</span>
-<span class="cstat-no" title="statement not covered" >            nextClick()</span>
+<span class="cstat-no" title="statement not covered" >            nextClick();</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 <span class="cstat-no" title="statement not covered" >        if (</span>
 <span class="cstat-no" title="statement not covered" >            e.key === 'Enter' &amp;&amp;</span>
 <span class="cstat-no" title="statement not covered" >            props.cardProps.cardControl === 'animalInput'</span>
 <span class="cstat-no" title="statement not covered" >        ) {</span>
-<span class="cstat-no" title="statement not covered" >            finishClick()</span>
+<span class="cstat-no" title="statement not covered" >            finishClick();</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
-    //Focus on input when new page loads
+    // Focus on input when new page loads
     useEffect(() =&gt; {
-        if (inputValue.current) {
-            inputValue.current.focus()
+        if (inputValue.current != null) {
+            inputValue.current.focus();
         }
-    }, [])
+    }, []);
 &nbsp;
     return (
         &lt;Card className={style.cardContainer}&gt;
@@ -392,7 +398,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
                 &lt;Form.Group controlId={props.cardProps.cardControl}&gt;
                     &lt;Form.Control
                         type="text"
-                        defaultValue={savedInputValue || ''}
+                        defaultValue={savedInputValue}
                         placeholder={props.cardProps.placeholderText}
                         className={style.input}
                         ref={inputValue}
@@ -415,7 +421,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
                 &lt;/div&gt;
             &lt;/Card.Body&gt;
         &lt;/Card&gt;
-    )
+    );
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -424,7 +430,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-10-25T16:01:13.807Z
+                at 2023-10-25T21:01:08.029Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
