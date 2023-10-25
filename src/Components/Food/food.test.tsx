@@ -2,6 +2,7 @@ import { expect, it, describe } from 'vitest';
 import { render } from '@testing-library/react';
 import Food from './food';
 import { BrowserRouter } from 'react-router-dom';
+import { CARD_TEXT } from '../../ui-text/ui-text';
 
 describe('Food component', () => {
     it('should render the component', () => {
@@ -10,7 +11,7 @@ describe('Food component', () => {
                 <Food />
             </BrowserRouter>
         );
-        expect(getByText('Write the name of a food:')).toBeTruthy();
+        expect(getByText(CARD_TEXT.foodCardTitle)).toBeTruthy();
     });
 });
 
