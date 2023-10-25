@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
-import style from './footer.module.css'
-import { PAGE_ROUTES } from '../../config/pageRoutes'
+import { Link } from 'react-router-dom';
+import style from './footer.module.css';
+import { PAGE_ROUTES } from '../../config/pageRoutes';
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
     return (
         <div className={style.footerContainer}>
             <ul className={style.footerList}>
@@ -18,5 +18,5 @@ export default function Footer() {
                 </li>
             </ul>
         </div>
-    )
+    );
 }

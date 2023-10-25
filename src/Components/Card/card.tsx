@@ -1,86 +1,88 @@
-import style from './card.module.css'
-import { useRef, RefObject, useEffect } from 'react'
-import { Card, Form, Button } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
-import { showErrorToast } from '../Utilities/toasts'
-import { storyFetch } from '../Utilities/sillyNetworkCall'
-import { CardProps } from '../Interfaces/cardProps'
-import { ButtonClick } from '../Interfaces/buttonClick'
+import style from './card.module.css';
+import { useRef, type RefObject, useEffect } from 'react';
+import { Card, Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { showErrorToast } from '../Utilities/toasts';
+import { storyFetch } from '../Utilities/sillyNetworkCall';
+import { type CardProps } from '../Interfaces/cardProps';
+import { type ButtonClick } from '../Interfaces/buttonClick';
 
 export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    //Input refs
+    // Input refs
     const inputValue: RefObject<HTMLInputElement> =
-        useRef<HTMLInputElement>(null)
+        useRef<HTMLInputElement>(null);
 
-    //Get values from localStorage to populate input fields
+    // Get values from localStorage to populate input fields
     const savedInputValue =
-        localStorage.getItem(`${props.cardProps.cardControl}`) || ''
+        localStorage.getItem(`${props.cardProps.cardControl}`) != null || '';
 
-    //Next button
+    // Next button
     const nextClick: ButtonClick = () => {
-        if (inputValue.current?.value === '') {
+        const inputValueValue = inputValue.current?.value ?? '';
+        if (inputValueValue === '') {
             showErrorToast(
                 `You need to enter a(n) ${props.cardProps.placeholderText}`
-            )
+            );
         } else {
-            navigate(`${props.cardProps.next}`)
-            console.log(inputValue.current?.value)
+            navigate(`${props.cardProps.next}`);
+            console.log(inputValueValue);
 
             localStorage.setItem(
                 `${props.cardProps.cardControl}`,
-                inputValue.current?.value || ''
-            )
+                inputValueValue
+            );
         }
-    }
+    };
 
-    //Back button
+    // Back button
 
     const backClick: ButtonClick = () => {
-        navigate(`${props.cardProps.back}`)
-    }
+        navigate(`${props.cardProps.back}`);
+    };
 
-    //Finish button
+    // Finish button
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     const finishClick: ButtonClick = async () => {
         try {
-            const fetchedStory = await storyFetch()
-            if (props.cardProps.setStoryState) {
+            const fetchedStory = await storyFetch();
+            if (props.cardProps.setStoryState != null) {
                 localStorage.setItem(
                     `${props.cardProps.cardControl}`,
-                    inputValue.current?.value || ''
-                )
-                props.cardProps.setStoryState(fetchedStory)
-                navigate('/finish')
+                    inputValue.current?.value != null || ''
+                );
+                props.cardProps.setStoryState(fetchedStory);
+                navigate('/finish');
             }
         } catch (err) {
-            showErrorToast('There was a problem')
-            console.log(err)
+            showErrorToast('There was a problem');
+            console.log(err);
         }
-    }
+    };
 
-    //Enter key
-    function handleEnterKey(e: React.KeyboardEvent<HTMLInputElement>) {
+    // Enter key
+    function handleEnterKey(e: React.KeyboardEvent<HTMLInputElement>): void {
         if (
             e.key === 'Enter' &&
             props.cardProps.cardControl !== 'animalInput'
         ) {
-            nextClick()
+            nextClick();
         }
         if (
             e.key === 'Enter' &&
             props.cardProps.cardControl === 'animalInput'
         ) {
-            finishClick()
+            finishClick();
         }
     }
 
-    //Focus on input when new page loads
+    // Focus on input when new page loads
     useEffect(() => {
-        if (inputValue.current) {
-            inputValue.current.focus()
+        if (inputValue.current != null) {
+            inputValue.current.focus();
         }
-    }, [])
+    }, []);
 
     return (
         <Card className={style.cardContainer}>
@@ -114,5 +116,5 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
                 </div>
             </Card.Body>
         </Card>
-    )
+    );
 }
