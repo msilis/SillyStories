@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import style from './savedStories.module.css';
-import { fetchSavedStories } from '../Utilities/getSavedStory';
+import { fetchSavedStories, savedStoryProps } from '../Utilities/getSavedStory';
 import { type SavedArray } from '../Interfaces/savedStories';
 import { deleteStory } from '../Utilities/deleteStory';
 
@@ -9,12 +9,17 @@ const getStories = async () => {
     return mySavedStories;
 };
 
-export default function SavedStories() {
+export default function SavedStories(): JSX.Element {
     const [savedStories, setSavedStories] = useState<SavedArray[]>([]);
 
-    const mySavedStories = async () => {
-        const stories = await getStories();
-        setSavedStories(stories);
+    const mySavedStories = async (): Promise<savedStoryProps[] | undefined> => {
+        try {
+            const stories = await getStories();
+            setSavedStories(stories);
+            return stories;
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     useEffect(() => {

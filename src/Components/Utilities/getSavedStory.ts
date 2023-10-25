@@ -18,5 +18,3 @@ export const fetchSavedStories = async (): Promise<
     }
     return data;
 };
-
-module.exports = { fetchSavedStories };
