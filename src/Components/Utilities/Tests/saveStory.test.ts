@@ -1,19 +1,20 @@
 import { test, expect, vi } from 'vitest';
-import { saveStory } from '../saveStory';
+import { type SaveResponse, saveStory } from '../saveStory';
 
 test('makes a POST request to the correct endpoint and handles a successful response correctly', async () => {
     const fetchMock = vi.fn();
     global.fetch = fetchMock;
 
-    const displayStory = {
-        title: 'My Story',
-        content: 'This is the content of my story.',
+    const displayStory: SaveResponse = {
+        story: 'My made up story',
+        _id: '1234',
+        _v: '0',
     };
 
     const expectedResponse = {
         story: 'My Story',
         _id: '1234',
-        _v: '5',
+        _v: '0',
     };
 
     fetchMock.mockResolvedValue({

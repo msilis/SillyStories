@@ -7,7 +7,7 @@ import {
 import { type SavedArray } from '../Interfaces/savedStories';
 import { deleteStory } from '../Utilities/deleteStory';
 
-const getStories = async () => {
+const getStories = async (): Promise<savedStoryProps[] | undefined> => {
     const mySavedStories = await fetchSavedStories();
     return mySavedStories;
 };
@@ -18,15 +18,16 @@ export default function SavedStories(): JSX.Element {
     const mySavedStories = async (): Promise<savedStoryProps[] | undefined> => {
         try {
             const stories = await getStories();
-            setSavedStories(stories);
+            setSavedStories(stories ?? []);
             return stories;
         } catch (error) {
             console.error(error);
+            return undefined;
         }
     };
 
     useEffect(() => {
-        mySavedStories();
+        void mySavedStories();
     }, []);
 
     return (
