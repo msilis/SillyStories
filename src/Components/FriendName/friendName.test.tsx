@@ -2,6 +2,7 @@ import { expect, it, describe } from 'vitest';
 import { render } from '@testing-library/react';
 import FriendName from './friendName';
 import { BrowserRouter } from 'react-router-dom';
+import { CARD_TEXT } from '../../ui-text/ui-text';
 
 describe('FriendName component', () => {
     it('should render the component', () => {
@@ -10,7 +11,7 @@ describe('FriendName component', () => {
                 <FriendName />
             </BrowserRouter>
         );
-        expect(getByText("Write a friend's name:")).toBeTruthy();
+        expect(getByText(CARD_TEXT.friendCardTitle)).toBeTruthy();
     });
 });
 
