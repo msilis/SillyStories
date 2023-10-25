@@ -1,5 +1,3 @@
-import React from 'react';
+import type React from 'react';
 
-export interface ButtonClick {
-    (event?: React.MouseEvent<HTMLButtonElement>): void;
-}
+export type ButtonClick = (event?: React.MouseEvent<HTMLButtonElement>) => void;

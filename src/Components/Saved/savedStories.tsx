@@ -26,6 +26,15 @@ export default function SavedStories(): JSX.Element {
         }
     };
 
+    const handleDeleteClick = async (story: SavedArray): Promise<void> => {
+        const id = story._id;
+        try {
+            await deleteStory(id);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     useEffect(() => {
         void mySavedStories();
     }, []);
@@ -45,9 +54,9 @@ export default function SavedStories(): JSX.Element {
                                     {story.story}
                                 </pre>
                                 <button
-                                    onClick={() => {
-                                        const id = story._id;
-                                        deleteStory(id);
+                                    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+                                    onClick={async () => {
+                                        void handleDeleteClick(story);
                                     }}
                                 >
                                     Delete
