@@ -6,7 +6,7 @@ describe('storyFetch', () => {
     it('should fetch a random story', async () => {
         const story = await storyFetch();
         expect(story).toBeDefined();
-    });
+    }, 40000);
 
     it('should throw an error if the fetch fails', async () => {
         const mockError = new Error('Failed to fetch');
