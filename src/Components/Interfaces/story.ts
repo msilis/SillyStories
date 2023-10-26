@@ -1,4 +1,4 @@
 export interface Story {
-    id: string;
+    _id: string;
     story: string;
 }

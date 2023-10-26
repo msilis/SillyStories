@@ -14,14 +14,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { clearStorage } from './Components/Utilities/clearStorage';
 import SavedStories from './Components/Saved/savedStories';
 import About from './Components/About/about';
+import { type Story } from './Components/Interfaces/story';
 
 function App(): JSX.Element {
     const navigate = useNavigate();
     const location = useLocation();
 
     // State to keep story
-    const [storyState, setStoryState] = useState<string>('');
-    const [editedStory, setEditedStory] = useState<string>('');
+    const [storyState, setStoryState] = useState<Story>();
+    const [editedStory, setEditedStory] = useState<Story>();
 
     const handleGoClick = (): void => {
         console.log('handleGoClick fired');
