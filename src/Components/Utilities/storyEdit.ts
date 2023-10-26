@@ -1,11 +1,11 @@
-import { StoryEdit } from '../Interfaces/editProps';
+import { type StoryEdit } from '../Interfaces/editProps';
 
 const storyEdit = (props: StoryEdit) => {
-    const Name = localStorage.getItem('friendNameInput') || '';
-    const City = localStorage.getItem('cityNameInput') || '';
-    const Color = localStorage.getItem('colorInput') || '';
-    const Food = localStorage.getItem('foodInput') || '';
-    const Animal = localStorage.getItem('animalInput') || '';
+    const Name = localStorage.getItem('friendNameInput') ?? '';
+    const City = localStorage.getItem('cityNameInput') ?? '';
+    const Color = localStorage.getItem('colorInput') ?? '';
+    const Food = localStorage.getItem('foodInput') ?? '';
+    const Animal = localStorage.getItem('animalInput') ?? '';
 
     const replacementValues = {
         Name,
