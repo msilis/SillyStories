@@ -1,6 +1,7 @@
 import { type StoryEdit } from '../Interfaces/editProps';
+import { type Story } from '../Interfaces/story';
 
-const storyEdit = (props: StoryEdit): string => {
+const storyEdit = (props: StoryEdit): Story => {
     const Name = localStorage.getItem('friendNameInput') ?? '';
     const City = localStorage.getItem('cityNameInput') ?? '';
     const Color = localStorage.getItem('colorInput') ?? '';

@@ -21,7 +21,7 @@ function App(): JSX.Element {
     const location = useLocation();
 
     // State to keep story
-    const [storyState, setStoryState] = useState<Story>();
+    const [storyState, setStoryState] = useState<Story | undefined>();
     const [editedStory, setEditedStory] = useState<Story>();
 
     const handleGoClick = (): void => {
@@ -31,32 +31,34 @@ function App(): JSX.Element {
 
     function StoryRoutes(): JSX.Element {
         return (
-            <Routes>
-                <Route
-                    path="/"
-                    element={<Home onClick={handleGoClick} />}
-                ></Route>
-                <Route path="/start" element={<FriendName />}></Route>
-                <Route path="/color" element={<FavoriteColor />}></Route>
-                <Route path="/food" element={<Food />}></Route>
-                <Route path="/city" element={<City />}></Route>
-                <Route
-                    path="/animal"
-                    element={<Animal setStoryState={setStoryState} />}
-                ></Route>
-                <Route
-                    path="/finish"
-                    element={
-                        <Finish
-                            storyState={storyState}
-                            editedStory={editedStory}
-                            setEditedStory={setEditedStory}
-                        />
-                    }
-                ></Route>
-                <Route path="/saved" element={<SavedStories />}></Route>
-                <Route path="/about" element={<About />}></Route>
-            </Routes>
+            <>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Home onClick={handleGoClick} />}
+                    ></Route>
+                    <Route path="/start" element={<FriendName />}></Route>
+                    <Route path="/color" element={<FavoriteColor />}></Route>
+                    <Route path="/food" element={<Food />}></Route>
+                    <Route path="/city" element={<City />}></Route>
+                    <Route
+                        path="/animal"
+                        element={<Animal setStoryState={setStoryState} />}
+                    ></Route>
+                    <Route
+                        path="/finish"
+                        element={
+                            <Finish
+                                storyState={storyState}
+                                editedStory={editedStory}
+                                setEditedStory={setEditedStory}
+                            />
+                        }
+                    ></Route>
+                    <Route path="/saved" element={<SavedStories />}></Route>
+                    <Route path="/about" element={<About />}></Route>
+                </Routes>
+            </>
         );
     }
 

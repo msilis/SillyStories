@@ -1,5 +1,7 @@
+import { type Story } from './story';
+
 export interface FinishState {
-    storyState: string;
-    editedStory: string;
-    setEditedStory: React.Dispatch<React.SetStateAction<string>>;
+    storyState: Story | undefined;
+    editedStory: Story | undefined;
+    setEditedStory: React.Dispatch<React.SetStateAction<Story | undefined>>;
 }
