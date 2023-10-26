@@ -3,9 +3,14 @@ export const method = {
     get: 'GET',
 };
 
-const storyFetch = () => {
-    return fetch('https://silly-stories-backend.onrender.com/randomStory')
-        .then((response) => response.json())
+interface RandomStory {
+    story: string;
+    _id: string;
+}
+
+const storyFetch = async (): Promise<RandomStory> => {
+    return await fetch('https://silly-stories-backend.onrender.com/randomStory')
+        .then(async (response) => await response.json())
         .then((data) => {
             return data.story;
         })
