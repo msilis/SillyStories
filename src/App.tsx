@@ -68,9 +68,7 @@ function App(): JSX.Element {
         }
     }, [location.pathname]);
 
-    useEffect(() => {
-        console.log(storyState, 'story state');
-    }, [storyState]);
+    useEffect(() => {}, [storyState]);
 
     return (
         <div className={style.mainContainer}>

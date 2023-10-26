@@ -8,7 +8,6 @@ import { type CardProps } from '../Interfaces/cardProps';
 import { type ButtonClick } from '../Interfaces/buttonClick';
 import { PAGE_ROUTES } from '../../config/pageRoutes';
 import { BUTTON_TEXT } from '../../ui-text/ui-text';
-import { Story } from '../Interfaces/story';
 
 export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
     const navigate = useNavigate();
@@ -55,7 +54,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
                     `${props.cardProps.cardControl}`,
                     inputValue.current?.value ?? ''
                 );
-                props.cardProps.setStoryState(fetchedStory as Story);
+                props.cardProps.setStoryState(fetchedStory);
                 navigate(PAGE_ROUTES.finish);
             }
         } catch (err) {

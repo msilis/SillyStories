@@ -1,14 +1,11 @@
+import { type Story } from '../Interfaces/story';
+
 export const method = {
     post: 'POST',
     get: 'GET',
 };
 
-interface RandomStory {
-    story: string;
-    _id: string;
-}
-
-const storyFetch = async (): Promise<RandomStory> => {
+const storyFetch = async (): Promise<Story | undefined> => {
     return await fetch('https://silly-stories-backend.onrender.com/randomStory')
         .then(async (response) => await response.json())
         .then((data) => {

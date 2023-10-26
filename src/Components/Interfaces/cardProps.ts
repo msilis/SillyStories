@@ -1,9 +1,11 @@
+import { type Story } from './story';
+
 export interface CardProps {
     cardTitle?: string;
     placeholderText?: string;
     cardControl?: string;
     next?: string;
     back?: string;
-    setStoryState?: React.Dispatch<React.SetStateAction<string>>;
+    setStoryState?: React.Dispatch<React.SetStateAction<Story | undefined>>;
     storyState?: string;
 }
