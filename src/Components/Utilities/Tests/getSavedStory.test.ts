@@ -34,7 +34,7 @@ describe('fetchSavedStories', () => {
     });
 
     it('throws an error if the fetch fails', async () => {
-        const mockError = new Error('Failed to fetch');
+        const mockError = new Error('Failed to fetch saved stories');
         const mockFetch = vi.fn().mockRejectedValue(mockError);
         global.fetch = mockFetch;
 
