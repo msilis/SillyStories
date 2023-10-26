@@ -1,5 +1,6 @@
 import { test, expect, vi } from 'vitest';
 import { type SaveResponse, saveStory } from '../saveStory';
+import { type SaveProps } from '../../Interfaces/saveProps';
 
 test('makes a POST request to the correct endpoint and handles a successful response correctly', async () => {
     const fetchMock = vi.fn();
@@ -22,7 +23,9 @@ test('makes a POST request to the correct endpoint and handles a successful resp
         json: async () => expectedResponse,
     });
 
-    const actualResponse = await saveStory(displayStory);
+    const actualResponse = await saveStory(
+        displayStory as unknown as SaveProps
+    );
 
     expect(fetchMock).toHaveBeenCalledWith('http://localhost:8086/saveStory', {
         method: 'POST',

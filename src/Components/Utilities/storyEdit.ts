@@ -16,14 +16,18 @@ const storyEdit = (props: StoryEdit): Story => {
         Animal,
     };
 
-    const story = props.storyState;
+    const story = props.storyState ?? '';
     let editedStory = story;
 
     Object.entries(replacementValues).forEach(([key, value]) => {
         const pattern = new RegExp(`\\[${key}\\]`, 'g');
-        editedStory = editedStory.replace(pattern, value);
+        if (typeof editedStory === 'string') {
+            editedStory = editedStory.replace(pattern, value);
+        }
     });
-    return editedStory;
+    return typeof editedStory === 'string'
+        ? { _id: '', story: editedStory }
+        : editedStory;
 };
 
 export { storyEdit };
