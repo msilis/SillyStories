@@ -26,7 +26,7 @@ export default function Finish(
 
     const saveClick = async (): Promise<SaveResponse | undefined> => {
         const saveProps: SaveProps = {
-            displayStory,
+            displayStory: props.storyState as SaveResponse,
         };
         return await saveStory(saveProps);
     };
