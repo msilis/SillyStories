@@ -34,7 +34,10 @@ export default function Finish(
     return (
         <div className={style.storyContainer}>
             <h1>Here is your story:</h1>
-            <pre className={style.storyStyle}>{displayStory}</pre>
+            <pre
+                className={style.storyStyle}
+                dangerouslySetInnerHTML={{ __html: displayStory?.story ?? '' }}
+            />
             <div className={style.buttonContainer}>
                 <Button className={style.button} onClick={newClick}>
                     New Story
