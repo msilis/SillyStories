@@ -4,6 +4,7 @@ import Animal from './animal';
 import { BrowserRouter } from 'react-router-dom';
 import { CARD_TEXT } from '../../ui-text/ui-text';
 import { type SetStateAction } from 'react';
+import { type Story } from '../Interfaces/story';
 
 describe('Food component', () => {
     it('should render the component', () => {
@@ -11,7 +12,7 @@ describe('Food component', () => {
             <BrowserRouter>
                 <Animal
                     setStoryState={function (
-                        _value: SetStateAction<string>
+                        _value: SetStateAction<Story | undefined>
                     ): void {
                         throw new Error('Function not implemented.');
                     }}
@@ -28,7 +29,7 @@ describe('Food component', () => {
             <BrowserRouter>
                 <Animal
                     setStoryState={function (
-                        _value: SetStateAction<string>
+                        _value: SetStateAction<Story | undefined>
                     ): void {
                         throw new Error('Function not implemented.');
                     }}
@@ -45,7 +46,7 @@ describe('FriendName component', () => {
             <BrowserRouter>
                 <Animal
                     setStoryState={function (
-                        _value: SetStateAction<string>
+                        _value: SetStateAction<Story | undefined>
                     ): void {
                         throw new Error('Function not implemented.');
                     }}
