@@ -29,7 +29,6 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
             );
         } else {
             navigate(`${props.cardProps.next}`);
-            console.log(inputValueValue);
 
             localStorage.setItem(
                 `${props.cardProps.cardControl}`,
@@ -63,7 +62,6 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
         }
     };
 
-    // Enter key
     function handleEnterKey(e: React.KeyboardEvent<HTMLInputElement>): void {
         if (
             e.key === 'Enter' &&
@@ -79,7 +77,6 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
         }
     }
 
-    // Focus on input when new page loads
     useEffect(() => {
         if (inputValue.current != null) {
             inputValue.current.focus();
