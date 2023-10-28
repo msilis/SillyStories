@@ -7,7 +7,7 @@ import { storyFetch } from '../Utilities/sillyNetworkCall';
 import { type CardProps } from '../Interfaces/cardProps';
 import { type ButtonClick } from '../Interfaces/buttonClick';
 import { PAGE_ROUTES } from '../../config/pageRoutes';
-import { BUTTON_TEXT } from '../../ui-text/ui-text';
+import { BUTTON_TEXT, TOAST_TEXT } from '../../ui-text/ui-text';
 
 export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
     const navigate = useNavigate();
@@ -57,7 +57,7 @@ export default function InfoCard(props: { cardProps: CardProps }): JSX.Element {
                 navigate(PAGE_ROUTES.finish);
             }
         } catch (err) {
-            showErrorToast('There was a problem');
+            showErrorToast(TOAST_TEXT.genericError);
             console.log(err);
         }
     };

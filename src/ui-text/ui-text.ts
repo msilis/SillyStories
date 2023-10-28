@@ -3,6 +3,7 @@ export enum TOAST_TEXT {
     deleteError = 'I could not delete your story.',
     deleteCatchError = 'There was an issue deleting the story.',
     saveStoryError = 'There was an issue saving your story.',
+    genericError = 'There was a problem',
 }
 
 export enum CARD_TEXT {
